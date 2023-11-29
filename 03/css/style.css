@@ -18,8 +18,13 @@ li {
 }
 
 #header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: #000;
   color: #fff;
+  transition: 0.3s;
 }
 
 #header nav {
@@ -27,6 +32,35 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* 메뉴 떨어지는 세팅 */
+#header::before {
+  content: '';
+  position: absolute;
+  top: -400px;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background: rgb(57, 57, 241);
+  transition: 0.3s;
+}
+#header.active::before {
+  top: 0;
+}
+
+#header .logo {
+  /* position: relative; */
+  z-index: 5;
+}
+
+/* header에 hide 클래스가 들어가면 top 수정 */
+#header.hide {
+  top: -100px;
+}
+
+#header.active .logo {
+  background: #fff;
 }
 
 .gnb {
@@ -69,6 +103,10 @@ li {
 }
 .submenu li a:hover {
   background: rgb(129, 5, 5);
+}
+
+#container {
+  padding: 150px 0;
 }
 
 #footer {
