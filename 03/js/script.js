@@ -19,16 +19,7 @@ $(function () {
 
   // 마우스 휠을 조작했을 때 :wheel
   $window.on('wheel', function (e) {
-    // 마우스 휠을 조작했을 때의 이벤트 정보를 보자
-    // console.log(e);
-    // console.log(e.originalEvent.wheelDelta);
-
-    if (e.originalEvent.wheelDelta > 0) {
-      // 휠을 올린 상태
-      $header.removeClass('hide');
-    } else {
-      // 휠을 내린 상태 --> header를 숨기자 --> hide 클래스 부여
-      $header.addClass('hide');
-    }
+    // if문 > 삼항 조건연산자로 표현
+    e.originalEvent.wheelDelta > 0 ? $header.addClass('hide') : $header.removeClass('hide');
   });
 });
